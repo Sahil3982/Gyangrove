@@ -3,18 +3,19 @@
 import React from "react";
 
 const RecommendedCard = ({ apidata }) => {
+    console.log(apidata?.events[0]?.imgUrl);
+
   return (
     <div className="ml-40 absolute gap-10 flex flex-row">
       {apidata?.events?.map((event, index) => (
         <div
           key={index}
           className="bg-white rounded-lg shadow-md overflow-hidden"
-          style={{
-            backgroundImage: `${event.imgUrl}`,
-            backgroundSize: "cover", // Ensure the background image covers the entire container
-            backgroundPosition: "center", // Center the background image
+          
+            style={{ backgroundImage: `url(${event.imgUrl})` }}
+
             
-          }}
+        
         >
           <div className="p-4">
             <h2 className="text-xl font-bold mb-2">{event.eventName}</h2>
