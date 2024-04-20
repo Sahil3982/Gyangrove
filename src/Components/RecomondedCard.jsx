@@ -1,18 +1,21 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React from "react";
 
-const RecomondedCard = ({event}) => {
+const RecommendedCard = ({ apidata }) => {
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {events.map((event, index) => (
+    <div className="ml-40 absolute gap-10 flex flex-row">
+      {apidata?.events?.map((event, index) => (
         <div
           key={index}
           className="bg-white rounded-lg shadow-md overflow-hidden"
+          style={{
+            backgroundImage: `${event.imgUrl}`,
+            backgroundSize: "cover", // Ensure the background image covers the entire container
+            backgroundPosition: "center", // Center the background image
+            
+          }}
         >
-          <img
-            src={event.imgUrl}
-            alt={event.eventName}
-            className="h-48 w-full object-cover"
-          />
           <div className="p-4">
             <h2 className="text-xl font-bold mb-2">{event.eventName}</h2>
             <p className="text-gray-600">{event.cityName}</p>
@@ -28,4 +31,4 @@ const RecomondedCard = ({event}) => {
   );
 };
 
-export default RecomondedCard;
+export default RecommendedCard;
